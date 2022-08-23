@@ -12,7 +12,7 @@ export const App = () => {
         
       }}
     >
-      React homework template
+      Тест злиття гілки
     </div>
   );
 };
