@@ -1,7 +1,13 @@
 .toggleBtn {
   position: relative;
-  width: 55px;
-  height: 19px;
+  width: 35px;
+  height: 14px;
+}
+@media screen and (min-width: 768px) {
+  .toggleBtn {
+    width: 55px;
+    height: 19px;
+  }
 }
 
 input[type='checkbox'] {
@@ -37,10 +43,17 @@ input[type='checkbox'] {
   content: '';
   position: absolute;
   top: 1px;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   transition: 0.5s ease transform, 0.2s ease background-color;
+}
+@media screen and (min-width: 768px) {
+  .toggleBtn span:before,
+  .toggleBtn span:after {
+    width: 15px;
+    height: 15px;
+  }
 }
 
 .toggleBtn span:before {
@@ -65,10 +78,20 @@ input[type='checkbox'] {
 
 .toggleBtn input[type='checkbox']:checked + span:before {
   background-color: rgb(6, 6, 31);
-  transform: translate(32px, -4px);
+  transform: translate(19px, -3px);
+}
+@media screen and (min-width: 768px) {
+  .toggleBtn input[type='checkbox']:checked + span:before {
+    transform: translate(32px, -4px);
+  }
 }
 
 .toggleBtn input[type='checkbox']:checked + span:after {
   background-color: rgb(218, 221, 228);
-  transform: translate(33px, 0px);
+  transform: translate(18px, 0px);
+}
+@media screen and (min-width: 768px) {
+  .toggleBtn input[type='checkbox']:checked + span:after {
+    transform: translate(33px, 0px);
+  }
 }

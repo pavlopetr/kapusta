@@ -1,5 +1,5 @@
 .header {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   /* padding-top: 12px;
   padding-bottom: 13px; */
 
@@ -19,8 +19,8 @@
   justify-content: space-between;
   max-width: 1280px;
   line-height: 0;
-  padding-left: 15px;
-  padding-right: 15px;
+  /* padding-left: 15px;
+  padding-right: 15px; */
   padding-top: 12px;
   padding-bottom: 13px;
   margin-left: auto;

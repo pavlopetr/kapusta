@@ -11,10 +11,10 @@ export default function LanguageSwitcher() {
   return (
     <div>
       <button className={s.loclIcon} onClick={() => changeLanguage('en')}>
-        <img src={english} alt="" width={30} />
+        <img className={s.icon} src={english} alt="" width="30" />
       </button>
       <button className={s.loclIcon} onClick={() => changeLanguage('ua')}>
-        <img src={ukrainian} alt="" width={30} />
+        <img className={s.icon} src={ukrainian} alt="" width="30" />
       </button>
     </div>
   );
