@@ -14,7 +14,7 @@ import {
   getIncomeTransaction,
 } from 'redux/transaction/transaction-operations';
 import { incomesStats } from 'redux/monthsStats/monthsStats-selector';
-import s from './Income.module.css';
+import s from './IncomeComponent.module.css';
 
 const IncomeComponent = () => {
   const loading = useSelector(isLoading);

@@ -2,7 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import { useFormik } from 'formik';
 import { registerUser, loginUser, getCurUser } from 'redux/auth/authOperations';
-import { getAuthError, getAuthLoading, getEmailUser, isLogedIn } from 'redux/auth/AuthSelector';
+import {
+  getAuthError,
+  getAuthLoading,
+  isLogedIn,
+} from 'redux/auth/AuthSelector';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import s from './Auth.module.css';
@@ -14,7 +18,6 @@ import { googleAuth } from '../../redux/auth/authSlise';
 import { useTranslation } from 'react-i18next';
 
 export const Auth = () => {
-  const email = useSelector(getEmailUser);
   const isLoading = useSelector(getAuthLoading);
   const error = useSelector(getAuthError);
 
@@ -38,7 +41,9 @@ export const Auth = () => {
     },
 
     validationSchema: Yup.object({
-      email: Yup.string().email(t('registration.emailErr')).required(t('registration.required')),
+      email: Yup.string()
+        .email(t('registration.emailErr'))
+        .required(t('registration.required')),
       password: Yup.string()
         .min(7, t('registration.lengthErr'))
         .required(t('registration.required')),
@@ -59,19 +64,6 @@ export const Auth = () => {
     // eslint-disable-next-line
   }, []);
 
-  useEffect(() => {
-    if (email && !token) {
-      dispatch(
-        loginUser({
-          email: formik.values.email,
-          password: formik.values.password,
-        })
-      );
-    }
-    reset();
-    // eslint-disable-next-line
-  }, [email]);
-
   const handleSubmitRegister = e => {
     e.preventDefault();
     if (formik.errors.email || formik.errors.password) {
@@ -87,6 +79,8 @@ export const Auth = () => {
         password: formik.values.password,
       })
     );
+
+    reset();
   };
 
   const handleSubmitLogin = e => {
@@ -132,7 +126,9 @@ export const Auth = () => {
         <p className={s.item}>{t('registration.mainTitle')}</p>
         <div className={s.wrapper}>
           <label className={s.text} htmlFor="email">
-            {formik.touched.email && formik.errors.email && <span className={s.span}>*</span>}
+            {formik.touched.email && formik.errors.email && (
+              <span className={s.span}>*</span>
+            )}
             {t('registration.email')}
           </label>
           <input
@@ -151,7 +147,9 @@ export const Auth = () => {
         </div>
         <div className={s.wrapperPassword}>
           <label className={s.text} htmlFor="password">
-            {formik.touched.password && formik.errors.password && <span className={s.span}>*</span>}
+            {formik.touched.password && formik.errors.password && (
+              <span className={s.span}>*</span>
+            )}
             {t('registration.password')}
           </label>
           <input
@@ -165,15 +163,25 @@ export const Auth = () => {
             value={formik.values.password}
           />
           <p className={s.error}>
-            {formik.touched.password && formik.errors.password && formik.errors.password}
+            {formik.touched.password &&
+              formik.errors.password &&
+              formik.errors.password}
           </p>
         </div>
         <>
           <div className={s.wrapperButtons}>
-            <button className={s.buttonSubmit} type="submit" onClick={handleSubmitLogin}>
+            <button
+              className={s.buttonSubmit}
+              type="submit"
+              onClick={handleSubmitLogin}
+            >
               {t('registration.enter')}
             </button>
-            <button className={s.button} type="submit" onClick={handleSubmitRegister}>
+            <button
+              className={s.button}
+              type="submit"
+              onClick={handleSubmitRegister}
+            >
               {t('registration.registration')}
             </button>
           </div>
@@ -185,21 +193,27 @@ export const Auth = () => {
         formik.values.password === '' &&
         !formik.errors.email &&
         !formik.errors.password && (
-          <div className={s.notificationError}>{t('registration.registrationErr1')}</div>
+          <div className={s.notificationError}>
+            {t('registration.registrationErr1')}
+          </div>
         )}
       {error === 'Request failed with status code 409' &&
         formik.values.email === '' &&
         formik.values.password === '' &&
         !formik.errors.email &&
         !formik.errors.password && (
-          <div className={s.notificationError}>{t('registration.registrationErr2')}</div>
+          <div className={s.notificationError}>
+            {t('registration.registrationErr2')}
+          </div>
         )}
       {error === 'Request failed with status code 403' &&
         formik.values.email === '' &&
         formik.values.password === '' &&
         !formik.errors.email &&
         !formik.errors.password && (
-          <div className={s.notificationError}>{t('registration.registrationErr3')}</div>
+          <div className={s.notificationError}>
+            {t('registration.registrationErr3')}
+          </div>
         )}
     </>
   );

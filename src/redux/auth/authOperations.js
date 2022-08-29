@@ -12,9 +12,9 @@ export const registerUser = createAsyncThunk(
   'auth/register',
   async (userData, thunkApi) => {
     try {
-      const registerUserData = await getRegisterApi(userData);
-
-      return registerUserData;
+      await getRegisterApi(userData);
+      const loginUserData = await getLoginApi(userData);
+      return loginUserData;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }

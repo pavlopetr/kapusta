@@ -10,8 +10,10 @@ import PublicRoute from './Routes/PublicRoute';
 const MainPage = lazy(() => import('../pages/MainPage'));
 const HomePage = lazy(() => import('../pages/HomePage'));
 const ReportsPage = lazy(() => import('../pages/ReportsPage'));
-const ExpensesComponent = lazy(() => import('./Expenses/ExpensesComponent'));
-const IncomeComponent = lazy(() => import('./Income/Income'));
+const ExpensesComponent = lazy(() =>
+  import('./ExpensesComponent/ExpensesComponent')
+);
+const IncomeComponent = lazy(() => import('./IncomeComponent/IncomeComponent'));
 
 export const App = () => {
   const dispatch = useDispatch();
