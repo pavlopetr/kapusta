@@ -1,7 +1,56 @@
+.transactionList{
+  width: 800px;
+  margin-top: 60px;
+}
+
+.header {
+  background-color: #F5F6FB;;
+  display: flex;
+  justify-content: space-around;
+      height: 40px;
+      border-radius: 20px 20px 0px 0px;
+}
+
+.bla {
+  overflow-y:scroll;
+  /* width: 780px; */
+  height: 400px;
+}
+
+.bla tr {
+  display: flex;
+  /* padddig: 0px 15px; */
+  justify-content: space-around;
+    border-bottom: 2px solid var(--table-line);
+    align-items: center;
+    height: 40px;
+  }
+
+
+
+.tableBody {
+  width: 778px;
+}
+
+.headTitle {
+font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #000000;
+
+  border-collapse: collapse;
+}
 .table {
   width: 780px;
-  margin-top: 60px;
-  margin-bottom: 20px;
+  /* margin-top: 60px; */
+  /* margin-bottom: 20px; */
 
   border-collapse: collapse;
 }
@@ -25,22 +74,28 @@
 }
 
 .table td {
+  display: block;
+  /* width: 10px; */
   /* background-color: #fff; */
-  height: 40px;
-  border-bottom: 2px solid var(--table-line);
+
+  /* border-bottom: 2px solid var(--table-line); */
 
   /* border: 1px solid #dddddd; */
   color: var(--primary-text-color);
   padding: 5px;
   text-align: center;
+
+  padding: 8px;
+  
 }
 
 .buttonDelete {
+  /* margin-left: 20px; */
   width: 32px;
   height: 32px;
   padding: 7px;
   border-radius: 50%;
-  margin: 0px 10px;
+  /* margin: 0px 10px; */
   background-image: url('../../assets/icons/deleteTransaction.svg');
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -67,3 +122,8 @@
 
 @media screen and (min-width: 1281px) {
 }
+
+
+    /* .tdDate {
+ padding-left: 20px;
+    } */
