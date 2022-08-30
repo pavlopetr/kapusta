@@ -37,64 +37,61 @@ const TransactionList = ({ transactionsArray, location }) => {
   return (
     <>
       <div>
-         {email && (
-        <ul className={s.transactionList}>
-          <li className={s.header}>
-            <h3 className={s.headTitle}>{t('transactions.date')}</h3>
-            <h3 className={s.headTitle}>{t('transactions.descr')}</h3>
-            <h3 className={s.headTitle}>{t('transactions.categ')}</h3>
-            <h3 className={s.headTitle}>{t('transactions.sum')}</h3>
-            <h3></h3>
-          </li>
-          <li></li>
-
+        {email && (
+          <ul className={s.transactionList}>
+            <li className={s.header}>
+              <h3 className={s.headTitle}>{t('transactions.date')}</h3>
+              <h3 className={s.headTitle}>{t('transactions.descr')}</h3>
+              <h3 className={s.headTitle}>{t('transactions.categ')}</h3>
+              <h3 className={s.headTitle}>{t('transactions.sum')}</h3>
+              <h3></h3>
+            </li>
+            <li></li>
           </ul>
         )}
         <div className={s.bla}>
-        {email && (
-        
-          <table className={s.table}>
-            <tbody className={s.tableBody}>
-              {arrayTable.map((item, index) => (
-                <tr key={item._id}>
-                  <td className={s.tdDate}>
-                    {item.date && item.date.split('-').reverse().join('.')}
-                  </td>
-                  <td>{item.description && item.description}</td>
-                  <td>
-                    {item.category && location === 'expenses'
-                      ? expenseReport[item.category].title
-                      : incomeCategories[item.category]}
-                  </td>
-                  <td
-                    style={
-                      location === 'expenses'
-                        ? { color: 'red', fontWeight: 'bold' }
-                        : { color: 'green', fontWeight: 'bold' }
-                    }
-                  >
-                    {location === 'expenses' && item.amount && '-'}
-                    &nbsp;
-                    {item.amount &&
-                      `${item.amount
-                        .toFixed(2)
-                        .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')} ${t(
-                        'general.currencyName'
-                      )}`}
-                  </td>
-                                      {item.amount && (
+          {email && (
+            <table className={s.table}>
+              <tbody className={s.tableBody}>
+                {arrayTable.map((item, index) => (
+                  <tr key={item._id}>
+                    <td className={s.tdDate}>
+                      {item.date && item.date.split('-').reverse().join('.')}
+                    </td>
+                    <td>{item.description && item.description}</td>
+                    <td>
+                      {item.category && location === 'expenses'
+                        ? expenseReport[item.category].title
+                        : incomeCategories[item.category]}
+                    </td>
+                    <td
+                      style={
+                        location === 'expenses'
+                          ? { color: 'red', fontWeight: 'bold' }
+                          : { color: 'green', fontWeight: 'bold' }
+                      }
+                    >
+                      {location === 'expenses' && item.amount && '-'}
+                      &nbsp;
+                      {item.amount &&
+                        `${item.amount
+                          .toFixed(2)
+                          .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')} ${t(
+                          'general.currencyName'
+                        )}`}
+                    </td>
+                    {item.amount && (
                       <button
                         className={s.buttonDelete}
                         onClick={() => dispatch(removeTransaction(item._id))}
                       ></button>
                     )}
-                </tr>
-                
-              ))}
-            </tbody>
-          </table>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           )}
-          </div>
+        </div>
       </div>
     </>
   );
