@@ -13,13 +13,11 @@
 
 .bla {
   overflow-y:scroll;
-  /* width: 780px; */
   height: 400px;
 }
 
 .bla tr {
   display: flex;
-  /* padddig: 0px 15px; */
   justify-content: space-around;
     border-bottom: 2px solid var(--table-line);
     align-items: center;
