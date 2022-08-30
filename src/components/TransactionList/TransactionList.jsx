@@ -36,8 +36,6 @@ const TransactionList = ({ transactionsArray, location }) => {
 
   return (
     <>
-      {/* {console.log(location)} */}
-
       <div>
          {email && (
         <ul className={s.transactionList}>
@@ -56,15 +54,6 @@ const TransactionList = ({ transactionsArray, location }) => {
         {email && (
         
           <table className={s.table}>
-            {/* <thead>
-              <tr>
-                <th>{t('transactions.date')}</th>
-                <th>{t('transactions.descr')}</th>
-                <th>{t('transactions.categ')}</th>
-                <th>{t('transactions.sum')}</th>
-                <th></th>
-              </tr>
-            </thead> */}
             <tbody className={s.tableBody}>
               {arrayTable.map((item, index) => (
                 <tr key={item._id}>
@@ -92,21 +81,7 @@ const TransactionList = ({ transactionsArray, location }) => {
                         .replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')} ${t(
                         'general.currencyName'
                       )}`}
-                                        {/* {item.amount && (
-                      <button
-                        className={s.buttonDelete}
-                        onClick={() => dispatch(removeTransaction(item._id))}
-                      ></button>
-                    )} */}
                   </td>
-                  {/* <td>
-                    {item.amount && (
-                      <button
-                        className={s.buttonDelete}
-                        onClick={() => dispatch(removeTransaction(item._id))}
-                      ></button>
-                    )}
-                  </td> */}
                                       {item.amount && (
                       <button
                         className={s.buttonDelete}
