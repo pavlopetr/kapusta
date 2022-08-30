@@ -30,7 +30,7 @@ const TransactionList = ({ transactionsArray, location }) => {
   };
 
   const arrayTable =
-    transactionsArray.length < 10
+    transactionsArray.length < 7
       ? createNewArray(transactionsArray)
       : transactionsArray;
 
@@ -51,7 +51,17 @@ const TransactionList = ({ transactionsArray, location }) => {
         )}
         <div className={s.bla}>
           {email && (
+            
             <table className={s.table}>
+                        {/* <thead>
+            <tr>
+              <th>{t('transactions.date')}</th>
+              <th>{t('transactions.descr')}</th>
+              <th>{t('transactions.categ')}</th>
+              <th>{t('transactions.sum')}</th>
+              <th></th>
+            </tr>
+          </thead> */}
               <tbody className={s.tableBody}>
                 {arrayTable.map((item, index) => (
                   <tr key={item._id}>
@@ -59,11 +69,13 @@ const TransactionList = ({ transactionsArray, location }) => {
                       {item.date && item.date.split('-').reverse().join('.')}
                     </td>
                     <td>{item.description && item.description}</td>
+
                     <td>
                       {item.category && location === 'expenses'
                         ? expenseReport[item.category].title
                         : incomeCategories[item.category]}
                     </td>
+
                     <td
                       style={
                         location === 'expenses'
@@ -80,12 +92,14 @@ const TransactionList = ({ transactionsArray, location }) => {
                           'general.currencyName'
                         )}`}
                     </td>
-                    {item.amount && (
+                    <td>                    {item.amount && (
                       <button
                         className={s.buttonDelete}
                         onClick={() => dispatch(removeTransaction(item._id))}
                       ></button>
-                    )}
+                    )}</td>
+
+
                   </tr>
                 ))}
               </tbody>
