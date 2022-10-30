@@ -2,6 +2,7 @@
   width: 780px;
   margin-top: 60px;
   margin-bottom: 20px;
+  overflow: auto;
 
   border-collapse: collapse;
 }

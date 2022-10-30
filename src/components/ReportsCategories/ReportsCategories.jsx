@@ -16,24 +16,29 @@ const ReportsCategories = ({
   const { t } = useTranslation();
   const paginationCat = t('pagination', { returnObjects: true });
 
-  const PaginatorTypes = () => {
-    const onBtnClick = () => {
-      if (type === 'expenses') {
-        setType('income');
-        setCategory('');
-        return;
-      }
-      setType('expenses');
+  const onBtnClick = () => {
+    if (type === 'expenses') {
+      setType('income');
       setCategory('');
-    };
-    return <Paginator clickPrev={onBtnClick} clickNext={onBtnClick} descr={paginationCat[type]} />;
+      return;
+    }
+    setType('expenses');
+    setCategory('');
   };
 
   return (
     <div className={s.block}>
-      <PaginatorTypes />
+      <Paginator
+        clickPrev={onBtnClick}
+        clickNext={onBtnClick}
+        descr={paginationCat[type]}
+      />
       <CategoriesList
-        transactions={type === 'expenses' ? userExpenses.expensesData : userIncome.incomesData}
+        transactions={
+          type === 'expenses'
+            ? userExpenses.expensesData
+            : userIncome.incomesData
+        }
         category={category}
         type={type}
         onCategoryChange={onCategoryChange}

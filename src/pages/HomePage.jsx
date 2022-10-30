@@ -20,7 +20,7 @@ const HomePage = () => {
 
     // eslint-disable-next-line
   }, [isMobile]);
-  console.log(location);
+
   return (
     <>
       {isMobile ? (

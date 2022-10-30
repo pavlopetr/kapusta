@@ -22,7 +22,6 @@ const balanceSlice = createSlice({
       state.balance = payload.userData.balance;
     },
     [loginUser.fulfilled]: (state, { payload }) => {
-      console.log('🚀 ~ payload', payload);
       state.balance = payload.userData.balance;
     },
     [getCurUser.fulfilled]: (state, { payload }) => {

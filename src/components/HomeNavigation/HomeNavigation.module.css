@@ -2,6 +2,12 @@
   display: flex;
 }
 
+@media screen and (min-width: 1280px) {
+  .container {
+    padding-left: 59px;
+  }
+}
+
 .link {
   background-color: var(--not-active-link-bg);
   border-top-left-radius: 20px;

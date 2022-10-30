@@ -34,6 +34,7 @@ const ExpensesComponent = () => {
 
   return (
     <>
+      {console.log(monthStats)}
       <FormTransaction
         operation={addExpenseTransaction}
         options={expensesCategArray}
@@ -46,6 +47,7 @@ const ExpensesComponent = () => {
           transactionsArray={transactions.filter(
             el => el.date === date.toISOString().slice(0, 10)
           )}
+          monthStats={monthStats}
         />
         <Summary monthStats={monthStats} />
       </div>

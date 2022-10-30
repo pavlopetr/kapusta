@@ -17,7 +17,6 @@ export const getRegisterApi = async userData => {
 export const getLoginApi = async userData => {
   const response = await axios.post('/auth/login', userData);
   savedToken.set(response.data.accessToken);
-  console.log('RD', response.data);
   return response.data;
 };
 
